@@ -1,0 +1,3 @@
+# Stellar
+
+** ADD PROJECT PROPOSAL WHEN FINISHED **
