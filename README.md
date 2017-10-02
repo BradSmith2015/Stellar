@@ -2,11 +2,11 @@
 
 **Team Name:**  Stellar (Group 62)
 
-**Members:**   Bradley Smith
-	         Henok Hailemariam
-           Michael Merola
-	         Mingxuan Zhang
-	         Vail Dorchester
+**Members:**    Bradley Smith,
+	          Henok Hailemariam,
+           	  Michael Merola,
+	          Mingxuan Zhang,
+	          Vail Dorchester
 
 **Description:**  Stellar will be a web application that allows the user to discover new music stars on the rise. Using data from music websites, the app will display an Artist profile and play sample music by the artist. The user can read a bio, browse pictures, and listen to a few short samples of music, then if the user likes the artist they can either save them into their “star” list or discard them. This user interaction will be similar to the “swiping” action of Tinder. The user will be able to view all of their saved artists and information. 
 	This application will utilize web scraping and APIs to gather the data needed to display information and music for the user. The UI will be a clean, material design interface that allows the user to seamlessly navigate and interact with the application. The app will feature a leaderboard of artists, and the most-swiped artist will be at the top. These features allow a fun and interactive experience for the user to discover new music. 
