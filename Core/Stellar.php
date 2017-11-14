@@ -13,7 +13,7 @@ class Stellar extends User{
 	}
 	
 	public function addArtistToLikedList($artist){
-		$stmt = $this->db->query("insert into `table` where...");
+		$stmt = $this->db->query("insert into `table` where");
 	}
 	
 	public function addTrackToLikedList($track_id){
