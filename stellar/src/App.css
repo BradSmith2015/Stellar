@@ -1,28 +1,76 @@
-.App {
+.Layout {
+  background-color: #003366;
+  min-height: 100%;
+  overflow: auto;
+
+
+}
+.columns{
+  scroll-behavior: smooth;
+  position: relative;
+  background-color: #003366;
+  float: left;
+  width: 33.3%;
+  height: 750px;
+}
+.Card {
   text-align: center;
+  border-radius: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -55% 0 0 -25%;
+  background-color:#E6E6F0;
+  height: 450px;
+  width: 300px;
+
+}
+.AlbumContainer{
+  text-align: center;
+
+
+}
+.div1 {
+  padding: 35px;
+  font-size: 35;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
+.AlbumArt{
+  padding-top: 50px;
   height: 150px;
-  padding: 20px;
-  color: white;
-}
+  width: 150px;
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
 }
+.buttonimg{
+  margin: auto;
+  height:65px;
+  width: 25px;
+}
+.leftbuttons{
+  background: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin:  -15% 0 0 40%;
+  border-radius: 5px;
+  text-align: center;
+  height: 75px;
+  width: 35px;
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+}
+.rightbuttons{
+  background: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin:  -15% 0 0 -40%;
+  border-radius: 5px;
+  text-align: center;
+  height: 75px;
+  width: 35px;
+
+}
+.Songlist{
+
 }
