@@ -48,6 +48,7 @@
   width: 25px;
 }
 .leftbuttons{
+  border: none;
   background: none;
   position: absolute;
   top: 50%;
@@ -60,6 +61,7 @@
 
 }
 .rightbuttons{
+  border:none;
   background: none;
   position: absolute;
   top: 50%;
@@ -69,8 +71,5 @@
   text-align: center;
   height: 75px;
   width: 35px;
-
-}
-.Songlist{
 
 }

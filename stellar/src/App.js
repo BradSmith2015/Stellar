@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Card from './Card.js';
 import './App.css';
 
-let x = "song";
-
+let x = 1;
 class App extends Component {
+
+
   render() {
     return (
     <div className = "Layout">

@@ -14,7 +14,7 @@
   align-items: center;
   height: 150px;
   width: inherit;
-  margin-top: 50px;
+  margin-top: 30px;
 
 
 }
@@ -27,5 +27,62 @@
 }
 .artistName{
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+.Songlistobject{
+  width: 100%;
+  height: 35px;
+  margin: 5px;
+}
+
+.SonglistName{
+  float:left;
+  margin: inherit;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+
+}
+
+.playbutton{
+  background: url(./playbutton.png);
+  border: none;
+  background-size: 100%;
+  border-radius: 50%;
+  margin-left: 10px;
+  float: left;
+  height:25px;
+  width: 25px;
+}
+
+.pausebutton{
+  background: url(./pausebutton.png);
+  border: none;
+  background-size: 100%;
+  border-radius: 50%;
+  margin-left: 10px;
+  float: left;
+  height:25px;
+  width: 25px;
+
+}
+
+.likebutton{
+  float: right;
+  background: url(./empty_heart.png);
+  background-size: 100%;
+  height: 25px;
+  width: 25px;
+  margin-right: 15px;
+  border: none;
+
+}
+.likebuttonfill{
+  float: right;
+  background: url(./filled_heart.png);
+  background-size: 100%;
+  height: 25px;
+  width: 25px;
+  margin-right: 15px;
+  border: none;
+
 }
