@@ -28,3 +28,9 @@ def recommendations():
 
 if __name__ == "__main__":
     app.run()
+
+
+'''
+**api-request is now a git repo on a heroku server
+git push heroku master
+'''
