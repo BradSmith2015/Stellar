@@ -33,6 +33,7 @@
   width: 100%;
   height: 35px;
   margin: 5px;
+
 }
 
 .SonglistName{
@@ -47,11 +48,10 @@
   background: url(./playbutton.png);
   border: none;
   background-size: 100%;
-  border-radius: 50%;
-  margin-left: 10px;
   float: left;
   height:25px;
   width: 25px;
+
 }
 
 .pausebutton{
@@ -84,5 +84,8 @@
   width: 25px;
   margin-right: 15px;
   border: none;
+
+}
+.div{
 
 }

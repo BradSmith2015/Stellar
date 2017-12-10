@@ -37,6 +37,8 @@ if(this.state.isTrackliked === false){
     background: "likebuttonfill"
   }));
 
+
+
 }else{
   this.setState(prevState => ({
     isTrackliked: !prevState.isTrackliked,
@@ -98,6 +100,7 @@ componentWillUpdate(nextProps){
 render(){
   return(
  <div className ="Songlistobject">
+
    <button className={this.state.playing} onClick={this.props.myClick}/>
    <h1 className = "SonglistName">{this.state.songName}</h1>
    <button className={this.state.background} onClick = {this.handleLike} >
@@ -115,7 +118,8 @@ export default class Card extends React.Component{
     super(props);
     this.state = {
                   s1: false,
-                  s2: false
+                  s2: false,
+                  artistName: "Tyler"
 
                 };
 
@@ -126,6 +130,7 @@ export default class Card extends React.Component{
 
 
   }
+
 
 
 //TODO: add method to pervent from multiple songs playing at once
@@ -170,7 +175,7 @@ render(){
 
     <div className = "CardBoarder">
       <div className = "ArtistImage">
-        <img src = {require('./tyler.jpg')} className = "Image"/>
+        <img src = {this.props.image} className = "Image"/>
       </div>
       <div style = {{marginBottom:"10px"}}>
         <h1 className = "artistName">{this.props.artistName}</h1>

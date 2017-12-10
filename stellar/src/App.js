@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from './Card.js';
 import './App.css';
-let artistID;
+
 class App extends Component {
   constructor(props){
   super(props);
@@ -10,37 +10,68 @@ class App extends Component {
   this.handlerightSwipe = this.handlerightSwipe.bind(this);
   this.state = {
                 newartist: "Tyler",
-                }
+                seed: "kanye+west",
+                requestFailed: false,
+                image:""
 
+              };
+
+  this.n = 0;
 
     }
+
+
+
+componentWillMount(){
+  fetch('https://stellar-backend.herokuapp.com/getrelatedartist?artist='+ this.state.seed)
+      .then(response => {
+      if (!response.ok) {
+        throw Error("Network request failed")
+      }
+
+      return response
+      })
+      .then(d => d.json())
+      .then(d =>{
+        this.setState({
+          data: d
+        })
+        },() => {
+        this.setState({
+          requestFailed: true
+        })
+      })
+    }
+
 
 cardChange(){
-  this.setState(prevState => ({
-        newartist: "Stuff",
-        newId: artistID
-
-    }))
-
-
-
-
-
-    }
-    handleleftSwipe(){
-    //take artistID and send that to data base
-    //
+  this.n++
+  var name = this.state.data.similarartists.artist[this.n].name;
+  var imageurl = this.state.data.similarartists.artist[this.n].image[5]["#text"];
+  this.setState({
+    newartist:name,
+    image: imageurl
+  })
+}
 
 
 
-    }
-    handlerightSwipe(){
-    //take artistID and send that to database
+handleleftSwipe(){
 
-    }
+
+
+
+}
+handlerightSwipe(){
+
+
+
+}
 
 
     render() {
+      if (this.state.requestFailed) return <p>Failed!</p>
+      if (!this.state.data) return <p>Loading...</p>
       return (
         <div className = "Layout">
           <div className = "columns">
@@ -49,15 +80,15 @@ cardChange(){
             </button>
           </div>
           <div className = "columns" >
-            <Card artistName = {this.state.newartist} />
-      </div>
-      <div className = "columns">
-        <button className = "rightbuttons" onClick= {this.cardChange}>
-          <img src = {require('./Arrows-Forward-icon.png')} style = {{width: "100%", height: "100%"}}/>
-        </button>
-      </div>
+            <Card artistName = {this.state.newartist} image = {this.state.image} />
+          </div>
+          <div className = "columns">
+            <button className = "rightbuttons" onClick= {this.cardChange}>
+              <img src = {require('./Arrows-Forward-icon.png')} style = {{width: "100%", height: "100%"}}/>
+            </button>
+          </div>
 
-    </div>
+        </div>
 
 
 
