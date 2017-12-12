@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import Main from './Main';
 import Card from './Card.js';
 import './App.css';
 
@@ -6,8 +8,8 @@ class App extends Component {
   constructor(props){
   super(props);
   this.cardChange = this.cardChange.bind(this);
-  this.handleleftSwipe = this.handleleftSwipe.bind(this);
   this.handlerightSwipe = this.handlerightSwipe.bind(this);
+  this.changetoArtist = this.changetoArtist.bind(this);
   this.state = {
                 newartist: "Tyler",
                 seed: "kanye+west",
@@ -56,16 +58,18 @@ cardChange(){
 
 
 
-handleleftSwipe(){
+
+handlerightSwipe(){
+ var artist = this.state.newartist;
+ //input artist as a liked artist
 
 
 
 
 }
-handlerightSwipe(){
-
-
-
+changetoArtist(e){
+  e.preventDefault();
+    window.location = 'stellar/src/Likedartist.js';
 }
 
 
@@ -73,6 +77,7 @@ handlerightSwipe(){
       if (this.state.requestFailed) return <p>Failed!</p>
       if (!this.state.data) return <p>Loading...</p>
       return (
+
         <div className = "Layout">
           <div className = "columns">
             <button className = "leftbuttons" onClick ={this.cardChange}>
@@ -86,6 +91,14 @@ handlerightSwipe(){
             <button className = "rightbuttons" onClick= {this.cardChange}>
               <img src = {require('./Arrows-Forward-icon.png')} style = {{width: "100%", height: "100%"}}/>
             </button>
+            <div className = "dropdown">
+              <button className = "dropbtn"></button>
+              <div className = "dropdown-con">
+                <div><Link to ='/Likedartist' style = {{textDecoration: 'none', color: 'black'}}>Artist</Link></div>
+                <div><Link to ='/Likedsongs' style = {{textDecoration: 'none', color: 'black'}}>Songs</Link></div>
+
+              </div>
+            </div>
           </div>
 
         </div>

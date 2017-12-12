@@ -1,0 +1,61 @@
+.Layout {
+  background-color: #000000;
+  min-height: 100%;
+  overflow: auto;
+
+
+}
+.Header{
+  height: 35px;
+  min-width: 100%;
+  background-color:#001122;
+}
+.list {
+
+    position: fixed;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+.list li {
+ float: left;
+ display: block;
+ color: white;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+}
+.list li.active{
+  background-color: lightgrey;
+  padding: 13.78px 14px;
+}
+.list li:hover:not(.active){
+  background-color: #111;
+}
+.songlistcontainer{
+  padding-top: 20px;
+  margin-top: 30px;
+
+}
+.songlist{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+
+}
+.songlist li {
+  list-style-position: outside;
+  display: block;
+  border-bottom: 1px solid lightgrey;
+  background-color: inherit;
+  margin: 10px;
+  color: white;
+}
+.songlist li:hover{
+  background-color: lightgrey;
+  color: black;
+}

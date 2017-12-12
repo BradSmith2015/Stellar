@@ -36,8 +36,9 @@ if(this.state.isTrackliked === false){
     isTrackliked: !prevState.isTrackliked,
     background: "likebuttonfill"
   }));
-
-
+  var song = this.state.songName;
+  //input as a liked song
+  
 
 }else{
   this.setState(prevState => ({
