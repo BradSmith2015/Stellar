@@ -6,6 +6,9 @@ from flask import Flask
 from flask import jsonify
 app = Flask(__name__)
 
+from flask_cors import CORS, cross_origin
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 '''
 Application name	  Stellar
@@ -16,6 +19,7 @@ Registered to	      clutch1911
 
 
 @app.route('/')
+@cross_origin()
 def hello_world():
     return 'Hello, World!'
 
