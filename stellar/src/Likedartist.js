@@ -28,24 +28,7 @@ export default class Likedartist extends Component{
           <li>flkdfjask</li>
           <li>flkdfjask</li>
           <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
-          <li>flkdfjask</li>
 
-          <li>flkdfjask</li>
 
         </ul>
       </div>

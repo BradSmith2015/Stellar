@@ -15,18 +15,18 @@ constructor(props){
                 playing: "playbutton",
                 songName: "November"
                 };
-  this.handlePlay = this.handlePlay.bind(this);
+  //this.handlePlay = this.handlePlay.bind(this);
+  this.baseState = this.state;
   this.handleLike = this.handleLike.bind(this);
   this.isTrackPlaying = this.isTrackPlaying.bind(this);
 }
 //handles like function for the heartbutton
 //TODO:add function to store liked into databases
-handleChange(){
-  this.setState(prevState => ({
-    songName:this.props.songname,
-
-}));
+resetlikes(){
+  this.setState(this.baseState);
 }
+
+
 isTrackPlaying(){
   return (this.state.isTrackPlaying);
 }
@@ -38,7 +38,7 @@ if(this.state.isTrackliked === false){
   }));
   var song = this.state.songName;
   //input as a liked song
-  
+
 
 }else{
   this.setState(prevState => ({
@@ -51,7 +51,7 @@ if(this.state.isTrackliked === false){
 //playing at once, this possibly may have to be add in App.js
 //TODO:add fucntionality to connect to Spotify api so that track is played
 
-handlePlay(){
+/*handlePlay(){
 
   if(this.state.isTrackPlaying === false && this.audioobject.paused ){
     this.setState(prevState => ({
@@ -71,8 +71,10 @@ handlePlay(){
   this.audioobject.currentTime = 0;
   }
 
-}
+}*/
+
 componentWillUpdate(nextProps){
+if(nextProps.turnon !== this.props.turnon){
   if(this.state.isTrackPlaying === false && this.audioobject.paused && nextProps.turnon === true){
     this.setState(prevState => ({
       isTrackPlaying: true,
@@ -90,8 +92,23 @@ componentWillUpdate(nextProps){
   this.audioobject.pause();
   this.audioobject.currentTime = 0;
   }
+}
+else if(nextProps.songName !== this.state.songName){
+  this.setState(({
+    songName: this.props.songName,
+    isTrackliked: false,
+    background: "likebutton"
+  }));
+}
+
+
 
 }
+
+
+
+
+
 
 
 
@@ -103,7 +120,7 @@ render(){
  <div className ="Songlistobject">
 
    <button className={this.state.playing} onClick={this.props.myClick}/>
-   <h1 className = "SonglistName">{this.state.songName}</h1>
+   <div className = "SonglistName">{this.state.songName}</div>
    <button className={this.state.background} onClick = {this.handleLike} >
    </button>
  </div>
@@ -120,8 +137,9 @@ export default class Card extends React.Component{
     this.state = {
                   s1: false,
                   s2: false,
-                  artistName: "Tyler"
-
+                  artistName: "Tyler",
+                  requestFailed: false,
+                  inital:true
                 };
 
     this.track1url = "https://p.scdn.co/mp3-preview/e9e8d9fce04ab59c61ed9708d9bee03910d5e205?cid=8897482848704f2a8f8d7c79726a70d4";
@@ -131,7 +149,56 @@ export default class Card extends React.Component{
 
 
   }
+componentDidMount(){
+  if(this.state.inital === true){
+  var artistlink = this.props.artistName.split(' ').join('+');
+  fetch('https://stellar-backend.herokuapp.com/gettoptracks?artist=' + artistlink)
+      .then(response => {
+      if (!response.ok) {
+        throw Error("Network request failed")
+      }
 
+      return response
+      })
+      .then(d => d.json())
+      .then(d =>{
+        this.setState({
+          data: d,
+          inital: false
+        })
+        },() => {
+        this.setState({
+          requestFailed: true
+
+        })
+      })
+    }
+  }
+componentDidUpdate(nextProps){
+  if(this.props.artistName !== nextProps.artistName){
+  var artistlink = this.props.artistName.split(' ').join('+');
+  fetch('https://stellar-backend.herokuapp.com/gettoptracks?artist=' + artistlink)
+      .then(response => {
+      if (!response.ok) {
+        throw Error("Network request failed")
+      }
+
+      return response
+      })
+      .then(d => d.json())
+      .then(d =>{
+        this.setState({
+          data: d
+
+        })
+        },() => {
+        this.setState({
+          requestFailed: true
+        })
+      })
+    }
+
+}
 
 
 //TODO: add method to pervent from multiple songs playing at once
@@ -170,10 +237,15 @@ if(this.state.s2 === false){
 }
 
 
-
 render(){
-    return(
 
+      if (this.state.requestFailed) return <p>Failed!</p>
+      if (!this.state.data) return <p>Loading...</p>
+      else{
+
+        this.song = this.state.data.toptracks.track;
+        console.log(this.state.data)
+        return(
     <div className = "CardBoarder">
       <div className = "ArtistImage">
         <img src = {this.props.image} className = "Image"/>
@@ -181,10 +253,18 @@ render(){
       <div style = {{marginBottom:"10px"}}>
         <h1 className = "artistName">{this.props.artistName}</h1>
       </div>
-      <SongPlayer  audio ={this.track1url} turnon = {this.state.s1} myClick = {this.playjustsong1}/>
-      <SongPlayer audio = {this.track2url} turnon = {this.state.s2} myClick = {this.playjustsong2}/>
+
+      <SongPlayer songName = {this.state.data.toptracks.track[0].name}/>
+      <SongPlayer songName = {this.state.data.toptracks.track[1].name}/>
+      <SongPlayer songName = {this.state.data.toptracks.track[2].name}/>
+      <SongPlayer songName = {this.state.data.toptracks.track[3].name}/>
+      <SongPlayer songName = {this.state.data.toptracks.track[4].name}/>
+
+
+
     </div>
       );
     }
+  }
 
 }

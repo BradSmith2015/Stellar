@@ -9,10 +9,9 @@ class App extends Component {
   super(props);
   this.cardChange = this.cardChange.bind(this);
   this.handlerightSwipe = this.handlerightSwipe.bind(this);
-  this.changetoArtist = this.changetoArtist.bind(this);
   this.state = {
                 newartist: "Tyler",
-                seed: "kanye+west",
+                seed: "Tyler+the+creator",
                 requestFailed: false,
                 image:""
 
@@ -47,13 +46,15 @@ componentWillMount(){
 
 
 cardChange(){
-  this.n++
   var name = this.state.data.similarartists.artist[this.n].name;
   var imageurl = this.state.data.similarartists.artist[this.n].image[5]["#text"];
   this.setState({
     newartist:name,
     image: imageurl
   })
+  console.log(name);
+  this.n++;
+
 }
 
 
@@ -67,10 +68,7 @@ handlerightSwipe(){
 
 
 }
-changetoArtist(e){
-  e.preventDefault();
-    window.location = 'stellar/src/Likedartist.js';
-}
+
 
 
     render() {
