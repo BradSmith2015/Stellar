@@ -30,6 +30,14 @@ def recommendations():
     r = requests.get(s)
     return jsonify(r.json())
 
+@app.route('/gettoptracks')
+def tracks():
+    artist = request.args.get("artist")
+    s = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=%s&api_key=18d4eb0cf3221fcef9bdc2e686bd697c&format=json" % artist
+    r = requests.get(s)
+    return jsonify(r.json())
+
+
 if __name__ == "__main__":
     app.run()
 
@@ -37,4 +45,6 @@ if __name__ == "__main__":
 '''
 **api-request is now a git repo on a heroku server
 git push heroku master
+
+https://stellar-backend.herokuapp.com/gettoptracks?artist=kanye+west
 '''
