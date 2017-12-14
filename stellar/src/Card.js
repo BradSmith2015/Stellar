@@ -254,7 +254,7 @@ render(){
         <h1 className = "artistName">{this.props.artistName}</h1>
       </div>
 
-      <SongPlayer songName = {this.state.data.toptracks.track[0].name}/>
+      <SongPlayer songName = {this.state.data.toptracks.track[0].name} myClick = {this.playjustsong1} turnon = {this.state.s1} />
       <SongPlayer songName = {this.state.data.toptracks.track[1].name}/>
       <SongPlayer songName = {this.state.data.toptracks.track[2].name}/>
       <SongPlayer songName = {this.state.data.toptracks.track[3].name}/>
