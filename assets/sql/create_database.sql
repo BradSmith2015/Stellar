@@ -29,23 +29,4 @@ create table if not exists liked_artists (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=7;
 
 #--This will add some dummy data
-insert into users (id, email, password)
-	values
-	(1, 'vail.dorhcester@colorado.edu', 'password'),
-	(2, 'vail.p.dorchester@gmail.com', 'password1');
-
-#--More dummy daya
-insert into liked_artists (u_id, a_id)
-	values
-	(1, 'Kendrick Lamar'),
-	(1, 'Beirut'),
-	(2, 'Thundercat');
-
-#--Even more data
-insert into liked_songs (u_id, s_id)
-	values
-	(1, 'Oh Devil'),
-	(1, 'Get Healed'),
-	(1, 'The Youth'),
-	(2, 'Pumped Up Kicks');
-
+#-- removed the dummy data because it was of the wrong format
