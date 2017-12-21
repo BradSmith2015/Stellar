@@ -6,7 +6,7 @@ try{
 	$target = $_POST['target'];
 	$args = $_POST['data'];
 	$obj = new User;
-	
+
 	if($target  == "register_user"){
 		$user = $obj->addUser($args[0], $args[1], '', '');
 		if($user){
@@ -14,7 +14,7 @@ try{
 		}
 	}
 	else{
-		
+
 		$user = $obj->login($args[0], $args[1]);
 		if($user){
 			if($target == "login"){
@@ -22,7 +22,7 @@ try{
 			}
 			/*
 			$stellar = new Stellar;
-			
+
 			if($target = "fetch_liked_artists"){
 				echo json_encode($stellar->getLikedArtists($user->email));
 			}
@@ -35,15 +35,15 @@ try{
 				echo json_encode($task);
 			}
 			*/
-			
+
 		}
 		else{
 			echo json_encode(["test_it"]);
 		}
-		
+
 	}
-	
-	
+
+
 }
 
 catch (UserError $e){
@@ -51,6 +51,6 @@ catch (UserError $e){
 	if($error == "Invalid email/Password"){
 		echo json_encode(["status" => 0, "credentials" => $args]); //this catches all the errors returned from the system;
 	}
-	
-	
+
+
 }
